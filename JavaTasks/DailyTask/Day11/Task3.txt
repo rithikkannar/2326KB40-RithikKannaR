@@ -1,0 +1,22 @@
+mysql> create table product (
+    -> productid int primary key,
+    -> productname varchar(50),
+    -> price int
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into product values
+    -> (1, 'laptop', 55000),
+    -> (2, 'keyboard', 1200),
+    -> (3, 'mouse', 800),
+    -> (4, 'monitor', 15000),
+    -> (5, 'printer', 7500);
+Query OK, 5 rows affected (0.01 sec)
+
+mysql> select max(price) as max_price, min(price) as min_price from product;
++-----------+-----------+
+| max_price | min_price |
++-----------+-----------+
+|     55000 |       800 |
++-----------+-----------+
+1 row in set (0.00 sec)

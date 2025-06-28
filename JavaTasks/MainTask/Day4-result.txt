@@ -1,0 +1,3 @@
+John Doe, 85, 90, 78
+Jane Smith, 92, 88, 79
+Alice Johnson, 75, 80, 85

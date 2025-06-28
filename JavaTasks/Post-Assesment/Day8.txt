@@ -1,0 +1,76 @@
+mysql> create table department (
+    -> deptid int primary key,
+    -> deptname varchar(50),
+    -> location varchar(50)
+    -> );
+query ok, 0 rows affected (0.02 sec)
+
+mysql> desc department;
++----------+--------------+------+-----+---------+-------+
+| field    | type         | null | key | default | extra |
++----------+--------------+------+-----+---------+-------+
+| deptid   | int          | NO   | PRI | NULL    |       |
+| deptname | varchar(50)  | YES  |     | NULL    |       |
+| location | varchar(50)  | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> create table employee (
+    -> empid int primary key,
+    -> empname varchar(50),
+    -> salary int,
+    -> deptid int,
+    -> foreign key (deptid) references department(deptid)
+    -> );
+query ok, 0 rows affected (0.03 sec)
+
+mysql> desc employee;
++---------+--------------+------+-----+---------+-------+
+| field   | type         | null | key | default | extra |
++---------+--------------+------+-----+---------+-------+
+| empid   | int          | NO   | PRI | NULL    |       |
+| empname | varchar(50)  | YES  |     | NULL    |       |
+| salary  | int          | YES  |     | NULL    |       |
+| deptid  | int          | YES  | MUL | NULL    |       |
++---------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into department values
+    -> (10, 'hr', 'chennai'),
+    -> (20, 'finance', 'mumbai'),
+    -> (30, 'it', 'bangalore'),
+    -> (40, 'marketing', 'delhi'),
+    -> (50, 'support', 'hyderabad');
+query ok, 5 rows affected (0.01 sec)
+
+mysql> insert into employee values
+    -> (1, 'arun', 35000, 10),
+    -> (2, 'kavya', 42000, 30),
+    -> (3, 'suresh', 39000, 20),
+    -> (4, 'meena', 37000, 50),
+    -> (5, 'raju', 41000, 40);
+query ok, 5 rows affected (0.01 sec)
+
+mysql> select * from department;
++--------+-----------+------------+
+| deptid | deptname  | location   |
++--------+-----------+------------+
+|     10 | hr        | chennai    |
+|     20 | finance   | mumbai     |
+|     30 | it        | bangalore  |
+|     40 | marketing | delhi      |
+|     50 | support   | hyderabad  |
++--------+-----------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from employee;
++--------+---------+--------+--------+
+| empid  | empname | salary | deptid |
++--------+---------+--------+--------+
+|      1 | arun    |  35000 |     10 |
+|      2 | kavya   |  42000 |     30 |
+|      3 | suresh  |  39000 |     20 |
+|      4 | meena   |  37000 |     50 |
+|      5 | raju    |  41000 |     40 |
++--------+---------+--------+--------+
+5 rows in set (0.00 sec)

@@ -1,0 +1,33 @@
+mysql> create table book (
+    -> bookid int primary key,
+    -> title varchar(100),
+    -> author varchar(50),
+    -> price int
+    -> );
+query ok, 0 rows affected (0.01 sec)
+
+mysql> insert into book values
+    -> (1, 'java fundamentals', 'arun', 450),
+    -> (2, 'python for beginners', 'kavya', 500),
+    -> (3, 'advanced java', 'suresh', 550),
+    -> (4, 'networking concepts', 'meena', 400),
+    -> (5, 'data science with python', 'raju', 600);
+query ok, 5 rows affected (0.01 sec)
+
+mysql> select * from book where title like '%java%';
++--------+--------------------+---------+--------+
+| bookid | title              | author  | price  |
++--------+--------------------+---------+--------+
+|      1 | java fundamentals  | arun    |    450 |
+|      3 | advanced java      | suresh  |    550 |
++--------+--------------------+---------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select * from book where title like '%python%';
++--------+---------------------------+--------+--------+
+| bookid | title                     | author | price  |
++--------+---------------------------+--------+--------+
+|      2 | python for beginners      | kavya  |    500 |
+|      5 | data science with python  | raju   |    600 |
++--------+---------------------------+--------+--------+
+2 rows in set (0.00 sec)
