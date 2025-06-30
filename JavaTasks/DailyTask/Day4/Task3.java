@@ -7,7 +7,7 @@ package Day4;
 
 	public class Task3 {
 	    public static void main(String[] args) {
-	        String filePath = "C:\\Users\\manik\\OneDrive\\Desktop\\JAVA\\Core_Java\\src\\Testing_File.txt"; // File path
+	        String filePath = "C:\\Users\\src\\Testing_File.txt"; // File path
 	        Scanner scanner = new Scanner(System.in);
 	        
 	        System.out.println("Enter The Text (type 'exit' to finish):");
