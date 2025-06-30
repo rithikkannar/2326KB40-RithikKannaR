@@ -1,26 +1,3 @@
-package Day6;
- import java.util.*;
-// Class implementing Runnable
-class MessagePrinter implements Runnable {
-    private String message;
-
-    // Constructor to set the message for each thread
-    public MessagePrinter(String message) {
-        this.message = message;
-    }
-
-    // Code that runs when the thread starts
-    public void run() {
-        for (int i = 1; i <= 5; i++) {
-            System.out.println(message + " - Count: " + i);
-            try {
-                Thread.sleep(300); // small delay to simulate work
-            } catch (InterruptedException e) {
-                System.out.println("Thread interrupted");
-            }
-        }
-    }
-}
 
 // Main class
 public class Task2 {
